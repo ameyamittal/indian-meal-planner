@@ -886,7 +886,7 @@ Requirements:
     }
 
     async callGeminiAPI(prompt) {
-        const API_KEY = 'AIzaSyCScPpY-f9cIGtXdo220Gr7CFtSlHcWX1Y';
+        const API_KEY = 'GEMINI_API_KEY';
         const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
         
         const requestBody = {
