@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Meal Planner</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-content-card">
+        <header>
+            <h1>🍽️ My Meal Planner</h1>
+            <div class="site-description">Input your ingredients and get a personalized meal plan for the week!</div>
+            <div class="top-menu">
+                <div class="diet-types diet-types-centered">
+                    <label class="diet-type"><input type="checkbox" class="diet-checkbox" name="dietType" value="anything" checked><span class="diet-icon">🥪</span>Anything</label>
+                    <label class="diet-type"><input type="checkbox" class="diet-checkbox" name="dietType" value="keto"><span class="diet-icon">🌾❌</span>Keto</label>
+                    <label class="diet-type"><input type="checkbox" class="diet-checkbox" name="dietType" value="paleo"><span class="diet-icon">🍖</span>Paleo</label>
+                    <label class="diet-type"><input type="checkbox" class="diet-checkbox" name="dietType" value="vegan"><span class="diet-icon">💚</span>Vegan</label>
+                    <label class="diet-type"><input type="checkbox" class="diet-checkbox" name="dietType" value="vegetarian"><span class="diet-icon">🥦</span>Vegetarian</label>
+                </div>
+                <div class="macro-card">
+                    <div class="macro-inputs-block">
+                        <div class="macro-calories-line">
+                            <label>I want to eat <input type="number" id="caloriesInput" value="1800" min="500" max="5000" step="10"> calories</label>
+                            <label>in <input type="number" id="mealsPerDayInput" value="3" min="1" max="6"> meals</label>
+                        </div>
+                        <div class="macro-macros-line">
+                            <label><span style="color:#f7b731;">●</span> <input type="number" id="carbsInput" value="90" min="0">g Carbs</label>
+                            <label><span style="color:#a55eea;">●</span> <input type="number" id="proteinInput" value="90" min="0">g Protein</label>
+                            <label><span style="color:#45aaf2;">●</span> <input type="number" id="fatInput" value="40" min="0">g Fat</label>
+                        </div>
+                    </div>
+                    <div class="nutrition-guidance">
+                        Average adult: 2000 kcal, 250g carbs, 70g fat, 50g protein
+                        <span class="nutrition-note">(varies by age, gender, activity)</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Ingredients Section -->
+            <section class="ingredients-section">
+                <h2>Available Ingredients</h2>
+                <div class="ingredients-categories">
+                    <!-- Vegetables -->
+                    <div class="ingredient-category">
+                        <h3>🥬 Vegetables</h3>
+                        <div class="ingredients-grid">
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="onions">
+                                <span class="checkmark"></span>
+                                Onions
+                                <input type="text" class="quantity-input" placeholder="Qty" data-ingredient="onions">
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="tomatoes">
+                                <span class="checkmark"></span>
+                                Tomatoes
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="potatoes">
+                                <span class="checkmark"></span>
+                                Potatoes
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="carrots">
+                                <span class="checkmark"></span>
+                                Carrots
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="cauliflower">
+                                <span class="checkmark"></span>
+                                Cauliflower
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="cabbage">
+                                <span class="checkmark"></span>
+                                Cabbage
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="spinach">
+                                <span class="checkmark"></span>
+                                Spinach
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="peas">
+                                <span class="checkmark"></span>
+                                Peas
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="beans">
+                                <span class="checkmark"></span>
+                                Beans
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="eggplant">
+                                <span class="checkmark"></span>
+                                Eggplant
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="cucumber">
+                                <span class="checkmark"></span>
+                                Cucumber
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="bell peppers">
+                                <span class="checkmark"></span>
+                                Bell Peppers
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="mushrooms">
+                                <span class="checkmark"></span>
+                                Mushrooms
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="pumpkin">
+                                <span class="checkmark"></span>
+                                Pumpkin
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="sweet potato">
+                                <span class="checkmark"></span>
+                                Sweet Potato
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Fruits -->
+                    <div class="ingredient-category">
+                        <h3>🍎 Fruits</h3>
+                        <div class="ingredients-grid">
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="bananas">
+                                <span class="checkmark"></span>
+                                Bananas
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="apples">
+                                <span class="checkmark"></span>
+                                Apples
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="oranges">
+                                <span class="checkmark"></span>
+                                Oranges
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="mangoes">
+                                <span class="checkmark"></span>
+                                Mangoes
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="papaya">
+                                <span class="checkmark"></span>
+                                Papaya
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="grapes">
+                                <span class="checkmark"></span>
+                                Grapes
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="pomegranate">
+                                <span class="checkmark"></span>
+                                Pomegranate
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="guava">
+                                <span class="checkmark"></span>
+                                Guava
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Grains & Flours -->
+                    <div class="ingredient-category">
+                        <h3>🌾 Grains & Flours</h3>
+                        <div class="ingredients-grid">
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="rice">
+                                <span class="checkmark"></span>
+                                Rice
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="wheat flour">
+                                <span class="checkmark"></span>
+                                Wheat Flour
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="semolina">
+                                <span class="checkmark"></span>
+                                Semolina (Rava)
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="quinoa">
+                                <span class="checkmark"></span>
+                                Quinoa
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="oats">
+                                <span class="checkmark"></span>
+                                Oats
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="corn flour">
+                                <span class="checkmark"></span>
+                                Corn Flour
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="besan">
+                                <span class="checkmark"></span>
+                                Besan (Gram Flour)
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="bread">
+                                <span class="checkmark"></span>
+                                Bread
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Proteins -->
+                    <div class="ingredient-category">
+                        <h3>🥩 Proteins</h3>
+                        <div class="ingredients-grid">
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="chicken">
+                                <span class="checkmark"></span>
+                                Chicken
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="eggs">
+                                <span class="checkmark"></span>
+                                Eggs
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="paneer">
+                                <span class="checkmark"></span>
+                                Paneer
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="tofu">
+                                <span class="checkmark"></span>
+                                Tofu
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="dal">
+                                <span class="checkmark"></span>
+                                Dal (Lentils)
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="chickpeas">
+                                <span class="checkmark"></span>
+                                Chickpeas
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="kidney beans">
+                                <span class="checkmark"></span>
+                                Kidney Beans
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="black beans">
+                                <span class="checkmark"></span>
+                                Black Beans
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dairy & Alternatives -->
+                    <div class="ingredient-category">
+                        <h3>🥛 Dairy & Alternatives</h3>
+                        <div class="ingredients-grid">
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="milk">
+                                <span class="checkmark"></span>
+                                Milk
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="yogurt">
+                                <span class="checkmark"></span>
+                                Yogurt (Curd)
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="butter">
+                                <span class="checkmark"></span>
+                                Butter
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="ghee">
+                                <span class="checkmark"></span>
+                                Ghee
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="cream">
+                                <span class="checkmark"></span>
+                                Cream
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="cheese">
+                                <span class="checkmark"></span>
+                                Cheese
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Spices & Herbs -->
+                    <div class="ingredient-category">
+                        <h3>🌶️ Spices & Herbs</h3>
+                        <div class="ingredients-grid">
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="garlic">
+                                <span class="checkmark"></span>
+                                Garlic
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="ginger">
+                                <span class="checkmark"></span>
+                                Ginger
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="turmeric">
+                                <span class="checkmark"></span>
+                                Turmeric
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="cumin">
+                                <span class="checkmark"></span>
+                                Cumin
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="coriander">
+                                <span class="checkmark"></span>
+                                Coriander
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="cardamom">
+                                <span class="checkmark"></span>
+                                Cardamom
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="cinnamon">
+                                <span class="checkmark"></span>
+                                Cinnamon
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="black pepper">
+                                <span class="checkmark"></span>
+                                Black Pepper
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="red chili powder">
+                                <span class="checkmark"></span>
+                                Red Chili Powder
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="garam masala">
+                                <span class="checkmark"></span>
+                                Garam Masala
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="curry leaves">
+                                <span class="checkmark"></span>
+                                Curry Leaves
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="mint leaves">
+                                <span class="checkmark"></span>
+                                Mint Leaves
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Oils & Fats -->
+                    <div class="ingredient-category">
+                        <h3>🫒 Oils & Fats</h3>
+                        <div class="ingredients-grid">
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="vegetable oil">
+                                <span class="checkmark"></span>
+                                Vegetable Oil
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="mustard oil">
+                                <span class="checkmark"></span>
+                                Mustard Oil
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="sesame oil">
+                                <span class="checkmark"></span>
+                                Sesame Oil
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="coconut oil">
+                                <span class="checkmark"></span>
+                                Coconut Oil
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Nuts & Seeds -->
+                    <div class="ingredient-category">
+                        <h3>🥜 Nuts & Seeds</h3>
+                        <div class="ingredients-grid">
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="almonds">
+                                <span class="checkmark"></span>
+                                Almonds
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="cashews">
+                                <span class="checkmark"></span>
+                                Cashews
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="peanuts">
+                                <span class="checkmark"></span>
+                                Peanuts
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="sesame seeds">
+                                <span class="checkmark"></span>
+                                Sesame Seeds
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="pumpkin seeds">
+                                <span class="checkmark"></span>
+                                Pumpkin Seeds
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Other -->
+                    <div class="ingredient-category">
+                        <h3>🍯 Other</h3>
+                        <div class="ingredients-grid">
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="honey">
+                                <span class="checkmark"></span>
+                                Honey
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="jaggery">
+                                <span class="checkmark"></span>
+                                Jaggery
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="sugar">
+                                <span class="checkmark"></span>
+                                Sugar
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="salt">
+                                <span class="checkmark"></span>
+                                Salt
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="lemon">
+                                <span class="checkmark"></span>
+                                Lemon
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="vinegar">
+                                <span class="checkmark"></span>
+                                Vinegar
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="tea leaves">
+                                <span class="checkmark"></span>
+                                Tea Leaves
+                            </label>
+                            <label class="ingredient-checkbox">
+                                <input type="checkbox" value="coffee">
+                                <span class="checkmark"></span>
+                                Coffee
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="selected-ingredients">
+                    <h3>Selected Ingredients:</h3>
+                    <div class="ingredients-list" id="ingredientsList">
+                        <!-- Selected ingredients will be displayed here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Generate Meals Section -->
+            <section class="generate-section">
+                <div class="meal-plan-mode-section" style="margin-bottom: 20px; justify-content: center; display: flex; gap: 32px;">
+                    <label style="display: flex; align-items: center; gap: 12px; font-weight: 500;">
+                        <input type="radio" name="mealPlanMode" value="ai" id="aiMealPlanRadio" checked>
+                        <span>AI-powered meal plan (more variety)</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 12px; font-weight: 500;">
+                        <input type="radio" name="mealPlanMode" value="strict" id="strictMealPlanRadio">
+                        <span>Strict local plan (only what you can make)</span>
+                    </label>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <button id="generateMealsBtn" class="generate-btn" style="display:none;">
+                        🎯 Generate Weekly Meal Plan
+                    </button>
+                </div>
+            </section>
+
+            <!-- Shopping List Section -->
+            <section class="shopping-list-section" id="shoppingListSection" style="display: none;">
+                <h2>Shopping List</h2>
+                <div class="shopping-list" id="shoppingList">
+                    <!-- Shopping list will be displayed here -->
+                </div>
+                <div class="shopping-list-actions">
+                    <button id="clearShoppingListBtn" class="clear-btn">Clear List</button>
+                    <button id="printShoppingListBtn" class="action-btn">🖨️ Print List</button>
+                </div>
+            </section>
+
+            <!-- Meal Plan Section -->
+            <section class="meal-plan-section" id="mealPlanSection" style="display: none;">
+                <div class="meal-plan-header">
+                    <h2>Your Weekly Meal Plan</h2>
+                    <div class="meal-plan-actions">
+                        <button id="generateShoppingListBtn" class="action-btn">🛒 Generate Shopping List</button>
+                        <button id="exportMealPlanBtn" class="action-btn">📄 Export Plan</button>
+                    </div>
+                </div>
+                <div class="meal-plan" id="mealPlan">
+                    <!-- Meal plan will be displayed here -->
+                </div>
+                <button id="clearMealPlanBtn" class="clear-btn">Clear Meal Plan</button>
+            </section>
+
+            <!-- Favorites Section -->
+            <section class="favorites-section">
+                <h2>Favorite Meals</h2>
+                <div class="favorites-list" id="favoritesList">
+                    <!-- Favorite meals will be displayed here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
