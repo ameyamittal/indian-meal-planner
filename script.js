@@ -630,7 +630,7 @@ class MealPlanner {
                 // Prepare the prompt for Gemini API
                 const prompt = this.createGeminiPrompt(userPrefs);
                 // Call Gemini API
-                const mealPlanData = await this.callGeminiAPI(prompt);
+                const mealPlanData = await this.callGemini(prompt);
                 // Parse and format the response
                 this.mealPlanData = this.parseGeminiResponse(mealPlanData);
                 this.renderMealPlan();
@@ -885,36 +885,14 @@ Requirements:
 - Try to match the calorie and macro targets as closely as possible for each day.`;
     }
 
-    async callGeminiAPI(prompt) {
-        const API_KEY = 'GEMINI_API_KEY';
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
-        
-        const requestBody = {
-            contents: [
-                {
-                    parts: [
-                        {
-                            text: prompt
-                        }
-                    ]
-                }
-            ]
-        };
-
-        const response = await fetch(url, {
+    async callGemini(prompt) {
+        const response = await fetch('/.netlify/functions/gemini', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(requestBody)
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ prompt })
         });
-
-        if (!response.ok) {
-            throw new Error(`API request failed: ${response.status}`);
-        }
-
         const data = await response.json();
-        return data.candidates[0].content.parts[0].text;
+        return data;
     }
 
     parseGeminiResponse(responseText) {
