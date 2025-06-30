@@ -1,22 +1,51 @@
-# My Meal Planner 🍽️
+# Indian Meal Planner Web App
 
-A simple, personal meal planning web application that helps you create weekly meal plans based on the ingredients you have available.
+A modern, responsive Indian meal planner web app that helps you generate weekly meal plans based on your available ingredients, dietary preferences, and nutrition goals. Powered by authentic Indian recipes and optional AI meal planning (Gemini API).
 
 ## Features
+- **Ingredient Selection:** Choose from a comprehensive list of Indian ingredients, with quantity inputs.
+- **Dietary Preferences:** Select one diet type (Anything, Keto, Paleo, Vegan, Vegetarian) using visually modern toggle buttons.
+- **Macros & Calories:** Input your target calories and macros (carbs, protein, fat) per day.
+- **Meal Plan Modes:** Toggle between AI-powered meal plan (using Gemini API) and Strict Local Plan (only what you can make with your ingredients).
+- **Shopping List:** Automatically generates a shopping list for missing/insufficient ingredients.
+- **Favorites:** Mark meals as favorites for quick access.
+- **Export/Print:** Export your meal plan as an image or print it.
+- **Modern UI:** Apple-inspired, WhatsApp-style patterned background, fully responsive, and visually appealing.
 
-- **Ingredient Management**: Add and remove ingredients from your available stock
-- **Smart Meal Generation**: Get meal suggestions based on your available ingredients
-- **Weekly Planning**: Generate a complete meal plan for the entire week
-- **Local Storage**: Your ingredients and meal plans are saved locally in your browser
-- **Responsive Design**: Works great on desktop and mobile devices
+## Demo
+<!-- Add a screenshot after deployment -->
+![Screenshot](screenshot.png)
 
-## How to Use
+## Getting Started
 
-1. **Open the App**: Simply open `index.html` in your web browser
-2. **Add Ingredients**: Type in the ingredients you have available and click "Add" or press Enter
-3. **Generate Meals**: Click the "Generate Weekly Meal Plan" button to create meal suggestions
-4. **View Your Plan**: See your personalized meal plan organized by day
-5. **Clear and Start Over**: Use the "Clear Meal Plan" button to start fresh
+### 1. Clone the Repository
+```sh
+git clone https://github.com/YOUR_USERNAME/indian-meal-planner.git
+cd indian-meal-planner
+```
+
+### 2. Add Your Gemini API Key (Optional, for AI mode)
+- Open `script.js` and add your Gemini API key where indicated.
+- **Note:** For production, do NOT expose your API key in client-side code. Use a backend or serverless function for security.
+
+### 3. Open Locally
+Just open `index.html` in your browser.
+
+## Deployment
+
+### Deploy on Netlify (Recommended)
+1. Push your code to GitHub.
+2. Sign up at [Netlify](https://www.netlify.com/) and connect your GitHub repo.
+3. Click **Deploy site**. Netlify will give you a live URL.
+
+## API Key Security
+- **Warning:** Never expose your Google/Gemini API key in public code. For production, use a backend or Netlify serverless function to keep your key secret.
+
+## Contributing
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+[MIT](LICENSE)
 
 ## Supported Ingredients
 
@@ -33,13 +62,6 @@ The app includes a database of common ingredients and meal suggestions:
 - **Local Storage**: Your data is saved locally and persists between sessions
 - **Pure JavaScript**: Built with vanilla HTML, CSS, and JavaScript
 - **Responsive**: Works on all device sizes
-
-## Getting Started
-
-1. Download all three files (`index.html`, `styles.css`, `script.js`)
-2. Place them in the same folder
-3. Open `index.html` in your web browser
-4. Start planning your meals!
 
 ## Customization
 
